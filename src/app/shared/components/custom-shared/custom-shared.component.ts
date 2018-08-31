@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-custom-shared',
   templateUrl: './custom-shared.component.html',
-  styleUrls: ['./custom-shared.component.sass']
+  styleUrls: ['./custom-shared.component.scss']
 })
 export class CustomSharedComponent implements OnInit {
 

@@ -4,15 +4,26 @@ import { HttpClientModule } from '@angular/common/http';
 
 /* Custom services  */
 import { AuthService } from './services/auth.service';
-import { HeaderToolbarComponent } from './components/header-toolbar/header-toolbar.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { CoreRoutingModule } from './core-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    CoreRoutingModule
   ],
-  declarations: [HeaderToolbarComponent],
-  exports: [HeaderToolbarComponent],
+  declarations: [
+    PageNotFoundComponent, 
+    LoginComponent, 
+    HeaderComponent
+  ],
+  exports: [
+    HeaderComponent,
+    CoreRoutingModule
+  ],
   providers: [
     AuthService
   ]
