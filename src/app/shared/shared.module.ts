@@ -6,6 +6,7 @@ import { FormsModule  } from '@angular/forms';
 // import { MdButtonModule } from '@angular/material';
 
 import { CustomSharedComponent } from './components/custom-shared/custom-shared.component';
+import { RibbonComponent } from './ribbon/ribbon.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { CustomSharedComponent } from './components/custom-shared/custom-shared.
     // MdButtonModule,
   ],
   declarations: [
-    CustomSharedComponent
+    CustomSharedComponent,
+    RibbonComponent
   ],
   exports: [
     // Angular stuff
@@ -28,7 +30,8 @@ import { CustomSharedComponent } from './components/custom-shared/custom-shared.
     // MdButtonModule,
 
     // custom components
-    CustomSharedComponent
+    CustomSharedComponent,
+    RibbonComponent
   ]
 })
 export class SharedModule { }

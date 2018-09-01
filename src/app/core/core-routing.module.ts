@@ -6,20 +6,20 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'default',
+        redirectTo: 'featureA',
         pathMatch: 'full'
     },
     {
         path: 'login',
         component: LoginComponent
-    },    
+    },
     {
         path: 'featureA',
-        loadChildren: './features/feature-a/feature-a.module#FeatureAModule'
+        loadChildren: 'app/features/feature-a/feature-a.module#FeatureAModule'
     },
     {
         path: 'featureB',
-        loadChildren: './features/feature-b/feature-b.module#FeatureBModule'
+        loadChildren: 'app/features/feature-b/feature-b.module#FeatureBModule'
     },
     {
         path: '**',
