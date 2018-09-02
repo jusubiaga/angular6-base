@@ -1,0 +1,12 @@
+{
+    "app": {
+        "title": "Aplication Title",
+        "text": "Sample Text for application"
+    },
+    "header": {
+        "title": "Header Title"
+    },
+    "featureA": {
+        "content": "Content for feature A"
+    }
+}

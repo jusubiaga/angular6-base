@@ -1,7 +1,11 @@
 <header>
+  <button (click)="useLanguage('en')">en</button>
+  <button (click)="useLanguage('es')">es</button>
+
+  <p>{{'app.title' | translate}}</p>
+  
   <app-header></app-header>
 </header>
-
 <main>
   <router-outlet></router-outlet>
 </main>

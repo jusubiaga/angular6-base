@@ -1,6 +1,8 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 /* Custom services  */
 import { AuthService } from './services/auth.service';
@@ -13,7 +15,14 @@ import { CoreRoutingModule } from './core-routing.module';
   imports: [
     CommonModule,
     HttpClientModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    }),        
   ],
   declarations: [
     PageNotFoundComponent, 
@@ -22,7 +31,8 @@ import { CoreRoutingModule } from './core-routing.module';
   ],
   exports: [
     HeaderComponent,
-    CoreRoutingModule
+    CoreRoutingModule,
+    TranslateModule
   ],
   providers: [
     AuthService
@@ -37,4 +47,9 @@ export class CoreModule {
       throw new Error('CoreModule is already loaded. Import only in AppModule');
     }
   }
+}
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
 }

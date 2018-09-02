@@ -1,0 +1,12 @@
+{
+    "app": {
+        "title": "Titulo de la aplicacion",
+        "text": "Texto de ejemplo para la aplicacion"
+    },
+    "header": {
+        "title": "Titulo Encabezado"
+    },
+    "featureA": {
+        "content": "Contenido para caracteristica A"
+    }    
+}
