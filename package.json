@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "release": "standard-version && git push --follow-tags origin master",
-    "build:prod": "ng build --target production --build-optimizer --vendor-chunk"
+    "build:prod": "ng build --configuration production --build-optimizer --vendor-chunk"
   },
   "private": true,
   "dependencies": {
