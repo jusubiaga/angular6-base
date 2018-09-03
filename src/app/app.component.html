@@ -1,6 +1,7 @@
-<header>
+<header *ngIf="isAuthenticated()">
   <button (click)="useLanguage('en')">en</button>
   <button (click)="useLanguage('es')">es</button>
+  <button (click)="logout()">logout</button>
 
   <p>{{'app.title' | translate}}</p>
   

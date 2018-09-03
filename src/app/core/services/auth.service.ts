@@ -1,10 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import * as Rx from "rxjs";
+
+interface AuthStatus {
+    authenticated: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+    // Initial Status
+    authStatusChanged = new Rx.BehaviorSubject<AuthStatus>({authenticated: false});
+
     token = {
         refresh_token: 'refreshtokencode',
         exp: new Date((new Date().getDate() + 1)),
@@ -20,12 +28,14 @@ export class AuthService {
 
     login(username, password) {
         this.setToken(this.token);
-        this.router.navigate(['admin', 'dashboard']);
+        this.authStatusChanged.next({authenticated: true});
+        // this.router.navigate(['admin', 'dashboard']);
     }
 
     logout() {
         this.removeToken();
-        this.router.navigate(['login']);
+        // this.router.navigate(['login']);
+        this.authStatusChanged.next({authenticated: false});
     }
 
     getToken() {
@@ -37,7 +47,11 @@ export class AuthService {
     }
 
     getAccessToken() {
-        return JSON.parse(localStorage.getItem(this.tokenKey))['access_token'];
+        let token = localStorage.getItem(this.tokenKey);
+        if (token) {
+            return JSON.parse(token)['access_token'];
+        }
+        return null;
     }
 
     isAuthenticated() {
